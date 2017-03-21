@@ -1,0 +1,53 @@
+﻿body {
+}
+
+.juzhong {
+    float:none;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#rank {
+    padding-left:20px;
+}
+#rank>li {
+    padding-bottom:10px;
+}
+.images {
+    width:140px;
+    height:140px;
+}
+.tags {
+    background-color:#f4faff;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:5px;
+    padding-top:5px;
+    margin-right:5px;
+}
+.book_fm {
+    width:130px;
+    height:170px;
+    padding:0;
+    margin:5px;
+}
+.book_detail {
+    height:200px;
+    padding:0;
+    margin:5px;
+}
+.book_image {
+    width:120px;
+    height:160px;
+}
+
+.speech_image {
+    width:120px;
+    height:160px;
+}
+.speech_detail {
+    height:200px;
+    padding:0;
+    margin:5px;
+}
