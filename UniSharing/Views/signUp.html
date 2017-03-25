@@ -8,6 +8,34 @@
     <script src="../jQuery/jquery-3.1.1.js" type="text/javascript" ></script>
     <script src="../bootstrap/js/bootstrap.js" type="text/javascript"></script>
     <!-- 到此为止 -->
+    <script type="text/javascript">
+        function submit() {
+            var x = $("#SignUpInfo").serialize();
+            alert(x);
+            alert(typeof (x));
+            $.ajax({
+                url: '../Handlers/SignUp.ashx',
+                type: 'post',
+                data: x,
+                success: function (res) {
+                    if (res == "success") {
+                        alert(res);
+                    }
+                    else {
+                        alert(res);
+                    }
+                }
+            });
+        }
+        function check() {
+
+        }
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                submit();
+            });
+        });
+    </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>用户注册</title>
 	<meta charset="utf-8" />
@@ -33,43 +61,43 @@
                         用户注册
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" id="SignUpInfo">
                             <div class="form-group">
                                 <label for="mail" class="col-xs-2 control-label">邮箱</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="mail" placeholder="请输入邮箱地址"/>
+                                    <input type="text" class="form-control" name="mail" id="mail" placeholder="请输入邮箱地址"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-xs-2 control-label">密码</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="password" placeholder="请输入密码"/>
+                                    <input type="text" class="form-control" name="password" id="password" placeholder="请输入密码"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name" class="col-xs-2 control-label">昵称</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="name" placeholder="请输入昵称"/>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="请输入昵称"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="school" class="col-xs-2 control-label">院校</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="school" placeholder="请输入院校"/>
+                                    <input type="text" class="form-control" name="school" id="school" placeholder="请输入院校"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="schoolId" class="col-xs-2 control-label">学号</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="schoolId" placeholder="请输入学号"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-10 col-xs-offset-2">
-                                    <button type="submit" class="btn btn-default">提交</button>
+                                    <input type="text" class="form-control" name="schoolId" id="schoolId" placeholder="请输入学号"/>
                                 </div>
                             </div>
                         </form>
+                            <div class="form-group">
+                                <div class="col-xs-10 col-xs-offset-2">
+                                    <button id="submit" type="button" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
