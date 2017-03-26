@@ -17,7 +17,7 @@ namespace UniSharing
         public static bool SignUp(Model_User user)
         {
             //string temp = "INSERT INTO [dbo].[user]([Id],[userName],[userPWD],[userMail],[school],[schoolNum])VALUES(< Id, int,>,< userName, nchar(10),> ,< userPWD, nchar(10),>,< userMail, nchar(10),>,< school, nchar(10),>,< schoolNum, nchar(10),>)"
-            string sql = "insert into [dbo].[user](userName,userPWD,userMail,school,schoolNum)values(@userName,@userPWD,@userMail,@school,@schoolNum)";
+            string sql = "insert into [dbo].[user](userName,userPWD,userMail,school,schoolNum,phoneNum)values(@userName,@userPWD,@userMail,@school,@schoolNum,@phoneNum)";
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@userName", user.UserName),
@@ -25,7 +25,7 @@ namespace UniSharing
                 new SqlParameter("@userMail",user.UserMail),
                 new SqlParameter("@school",user.School),
                 new SqlParameter("@schoolNum",user.SchoolNum),
-
+                new SqlParameter("@phoneNum",user.PhoneNum),
             };
             int ret = DAO_databaseControl.ExecuteSql(sql, parameters);
             if(ret>0)
@@ -39,12 +39,12 @@ namespace UniSharing
         /// </summary>
         /// <param name="user"></param>
         /// <returns>用户ID</returns>
-        public string LogIn(Model_User user)
+        public static string LogIn(Model_User user)
         {
-            string sql = "select Id from user where userName=@userName and userPWD=@userPWD";
+            string sql = "select Id from [dbo].[user] where phoneNum=@phoneNum and userPWD=@userPWD";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@userName", user.UserName),
+                new SqlParameter("@phoneNum", user.PhoneNum),
                 new SqlParameter("@userPWD",user.UserPassword),
             };
             DataTable dt_temp = DAO_databaseControl.GetDataSet(sql, parameters);

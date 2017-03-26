@@ -12,6 +12,7 @@ namespace UniSharing
         private string userMail;
         private string school;
         private string schoolNum;
+        private string phoneNum;
         private int userid;
         
         public string UserName
@@ -43,6 +44,11 @@ namespace UniSharing
         {
             set { schoolNum = value; }
             get { return schoolNum; }
+        }
+        public string PhoneNum
+        {
+            set { phoneNum = value; }
+            get { return phoneNum; }
         }
     }
 }

@@ -19,6 +19,7 @@ namespace UniSharing.Handlers
             string password = context.Request.Form["password"];
             string school = context.Request.Form["school"];
             string schoolId = context.Request.Form["schoolId"];
+            string phonenum = context.Request.Form["phone"];
             //封装用户对象
             Model_User user = new Model_User();
             user.UserName = name;
@@ -26,6 +27,7 @@ namespace UniSharing.Handlers
             user.UserPassword = password;
             user.School = school;
             user.SchoolNum = schoolId;
+            user.PhoneNum = phonenum;
 
             //context.Response.Write(name + mail + password + school + schoolId);
 
